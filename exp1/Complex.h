@@ -11,11 +11,12 @@ class Complex{
     pRe_=0.; pIm_=0.;   //defining an empty constructor
     Mod_=0.; Theta_=0.;
   };
- static  Complex Cartesian(double x, double y); //general constructor for complex in cartesian coords
+  Complex(double x, double y);
+  static  Complex Cartesian(double x, double y); //general constructor for complex in cartesian coords
   static Complex Polar(double mod, double theta);// general constructor for complex in polar coords
   Complex(const Complex& comp); //redefining a complex from a complex 
 
-  //various getters
+  //getters
   double re() const; //<-get real part
   double im() const; //<-get immaginary part 
   double mag() const; //<-get magnitude
@@ -24,12 +25,15 @@ class Complex{
   double phi() const;//^rinse and repeat
   
   void print() const; //<- cout overloading for complex numbers
-  //various setters for real and imaginary parts
+  //setters
+
+  void setComplex(const Complex& comp);
   void setRe(const double re);
   void setIm(const double im);
   void setMag(const double mag);
   void setPhase(const double phase);
   //operator overloading for two complex numbers
+
   Complex opplus(const Complex& c1); //plus
   Complex opmin(const Complex& c1); //minus
   Complex optimes(const Complex& c1);//times
@@ -42,17 +46,17 @@ class Complex{
 
   //overloading equal (=) operators
   bool opeqq(const Complex& c1); //<- this is a Boolean operator gives back true or false
-  Complex oppluseq(const Complex& c1);
-  Complex opmineq(const Complex& c1);
-  Complex optimeseq(const Complex& c1);
-  Complex opdivideq(const Complex& c1);
+  void oppluseq(const Complex& c1);
+  void opmineq(const Complex& c1);
+  void optimeseq(const Complex& c1);
+  void opdivideq(const Complex& c1);
   
  private:
   double pRe_;
   double pIm_;
   double Mod_;
   double Theta_;
-  Complex Complex(double x, double y);
+  Complex Comp_(double x, double y);
 };
 
 #endif

@@ -10,8 +10,8 @@ Complex Complex::Complex::Cartesian(double x, double y){
   return Complex(x,y);
 }
 Complex Complex::Complex::Polar(double mod, double theta){
-  Mod_=mod; Theta_=theta;
- double pre_=Complex::re(); double pim_=Complex::im();
+
+  double pre_=mod*cos(theta); double pim_=mod*sin(theta);
   return Complex(pre_,pim_);
 }
 
@@ -49,11 +49,16 @@ double Complex::phi() const{
 //print overloading
 void Complex::print() const{
   using namespace std;
-  cout<<"The complex number is:  "<<pRe_<<"  +  "<<pIm_<<endl;
+  cout<<"The complex number is:  "<<pRe_<<"  +  "<<pIm_<< " i "<<endl;
   cout<<"Its modulus and phase are:   "<<Mod_<<"   "<<Theta_<<endl;
 }
 
 //setters
+void Complex::setComplex(const Complex& comp){
+ pRe_=comp.pRe_; pIm_=comp.pIm_;
+  Mod_=comp.Mod_; Theta_=comp.Theta_;
+}
+
 
 void Complex::setRe(const double re){
   pRe_=re;
@@ -77,6 +82,9 @@ void Complex::setPhase(const double phase){
 }
 
 //operator overloading for two complex numbers
+
+
+
 Complex Complex::opplus(const Complex& c1){
   double pre= pRe_+c1.pRe_;
   double pim= pIm_+c1.pIm_;
@@ -102,6 +110,7 @@ Complex Complex::opdivide(const Complex& c1){
 }
 
 //operator overloading for a complex number and a double
+
 
 Complex Complex::opplus(const double& num){
   double pre= pRe_+ num;
@@ -131,18 +140,21 @@ bool Complex::opeqq(const Complex& c1){
   else{return false;}
 }
 
-Complex Complex::oppluseq(const Complex& c1){
-  return Complex::opplus(c1);
+void Complex::oppluseq(const Complex& c1){
+  Complex::setComplex(Complex::opplus(c1));
+  
 }
 
-Complex Complex::opmineq(const Complex& c1){
-  return Complex::opmin(c1);
+void Complex::opmineq(const Complex& c1){
+ Complex::setComplex(Complex::opmin(c1));
 }
 
-Complex Complex::optimeseq(const Complex& c1){
-  return Complex::optimes(c1);
+void Complex::optimeseq(const Complex& c1){
+ Complex::setComplex(Complex::optimes(c1));
+
 }
 
-Complex Complex::opdivideq(const Complex& c1){
-  return Complex::opdivide(c1);
+void Complex::opdivideq(const Complex& c1){
+  Complex::setComplex(Complex::opdivide(c1));
+
 }
