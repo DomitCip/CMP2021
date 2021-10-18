@@ -1,13 +1,18 @@
 #include "Complex.h"
 
 //constructors
- Complex::Cartesian(double x, double y){
+
+Complex::Complex(double x, double y){
   pRe_=x; pIm_=y;
   Mod_=Complex::mag(); Theta_=Complex::phase();
 }
-Complex::Polar(double mod, double theta){
+Complex Complex::Complex::Cartesian(double x, double y){
+  return Complex(x,y);
+}
+Complex Complex::Complex::Polar(double mod, double theta){
   Mod_=mod; Theta_=theta;
-  pRe_=Complex::re(); pIm_=Complex::im();
+ double pre_=Complex::re(); double pim_=Complex::im();
+  return Complex(pre_,pim_);
 }
 
 Complex::Complex(const Complex& comp){
@@ -127,17 +132,17 @@ bool Complex::opeqq(const Complex& c1){
 }
 
 Complex Complex::oppluseq(const Complex& c1){
-  return {Complex::opplus(c1);}
+  return Complex::opplus(c1);
 }
 
 Complex Complex::opmineq(const Complex& c1){
-  return {Complex::opmin(c1);}
+  return Complex::opmin(c1);
 }
 
 Complex Complex::optimeseq(const Complex& c1){
-  return {Complex::optimes(c1);}
+  return Complex::optimes(c1);
 }
 
 Complex Complex::opdivideq(const Complex& c1){
-  return {Complex::opdivide(c1);}
+  return Complex::opdivide(c1);
 }

@@ -52,6 +52,7 @@ class Complex{
   double pIm_;
   double Mod_;
   double Theta_;
+  Complex Complex(double x, double y);
 };
 
 #endif
