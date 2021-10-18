@@ -40,8 +40,12 @@ class Complex{
   Complex optimes(const double& num);//times
   Complex opdivide(const double& num);// divide
 
-  //overloading equal operators
-  Complex 
+  //overloading equal (=) operators
+  bool opeqq(const Complex& c1); //<- this is a Boolean operator gives back true or false
+  Complex oppluseq(const Complex& c1);
+  Complex opmineq(const Complex& c1);
+  Complex optimeseq(const Complex& c1);
+  Complex opdivideq(const Complex& c1);
   
  private:
   double pRe_;

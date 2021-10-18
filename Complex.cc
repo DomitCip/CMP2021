@@ -117,3 +117,27 @@ Complex Complex::opdivide(const double& num){
   double pim=pIm_/num;
   return Cartesian(pre,pim);
 }
+
+//overloading equal (=) operators
+bool Complex::opeqq(const Complex& c1){
+  if(pRe_==c1.pRe_ && pIm_==c1.pIm_ ){
+    return true;
+  }
+  else{return false;}
+}
+
+Complex Complex::oppluseq(const Complex& c1){
+  return {Complex::opplus(c1);}
+}
+
+Complex Complex::opmineq(const Complex& c1){
+  return {Complex::opmin(c1);}
+}
+
+Complex Complex::optimeseq(const Complex& c1){
+  return {Complex::optimes(c1);}
+}
+
+Complex Complex::opdivideq(const Complex& c1){
+  return {Complex::opdivide(c1);}
+}
