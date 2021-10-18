@@ -7,12 +7,20 @@ Complex::Cartesian(double x, double y){
 }
 Complex::Polar(double mod, double theta){
   Mod_=mod; Theta_=theta;
-  
+  pRe_=Complex::re(); pIm_=Complex::im();
 }
 
 Complex::Complex(const Complex& comp){
   pRe=comp.pRe_; pIm_=comp.pIm_;
 }
+
+double Complex::re() const{
+  return Mod_*cos(Theta_);
+}
+double Complex::im() const{
+  return Mod_*sin(Theta_);
+}
+
 double Complex::mag() const{
   return sqrt(pRe_*pRe_+ pIm_*pIm_);
 }
@@ -35,6 +43,7 @@ double Complex::phi() const{
 void Complex::print() const{//print overloading
   using namespace std;
   cout<<"The complex number is:  "<<pRe_<<"  +  "<<pIm_<<endl;
+  cout<<"Its modulus and phase are:   "<<Mod_<<"   "<<Theta_<<endl;
 }
 
-
+vo

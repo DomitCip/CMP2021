@@ -20,7 +20,7 @@ class Complex{
   double r() const;  
   double phi() const;//^rinse and repeat
   void print() const; //<- cout overloading for complex numbers
-  void setRe() const;//various setters for 
+  void setRe(const double ) const;//various setters for real and imaginary parts
   void setIm() const;
   void setmag() const;
   void setphase() const;
